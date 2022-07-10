@@ -1,0 +1,22 @@
+$.ajax({
+    url     :   ,
+    type    :   'get',
+    success :   function(res) {
+
+    },
+});
+
+$.ajax({
+    url     :   ,
+    type    :   'post',
+    data    :   payload,
+    success :   function(res) {
+
+    },
+    error   :   function(res) {
+        var errors = res.responseJSON.errors;
+        $.each(errors, function(k, v) {
+            toastr.error(v[0]);
+        });
+    },
+});
