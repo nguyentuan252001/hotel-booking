@@ -3,9 +3,9 @@
     Quản Lý Tài Khoản Admin
 @endsection
 @section('content')
-    <div class="row">
+    <div class="row" id="app">
         <div class="col-md-5">
-            <div class="card" id="app">
+            <div class="card">
                 <div class="card-header">
                     Tạo mới Admin
                 </div>
@@ -21,11 +21,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Mật Khẩu</label>
-                            <input v-model="add.passwork" type="password" class="form-control">
+                            <input v-model="add.password" type="password" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Nhập Lại Mật Khẩu</label>
-                            <input v-model="add.re_passwork" type="password" class="form-control">
+                            <input v-model="add.re_password" type="password" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Số Điện Thoại</label>
@@ -51,7 +51,7 @@
                     Tài Khoản
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="listAdmin">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
@@ -63,7 +63,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(value, key) in listAdmin">
+                            <tr v-for="(value,key) in listAdmin">
                                 <th class="text-center align-middle">@{{ key + 1 }}</th>
                                 <td class="align-middle">@{{ value.ho_va_ten }}</td>
                                 <td class="align-middle">@{{ value.email }}</td>
@@ -90,9 +90,10 @@
             el: '#app',
             data: {
                 listAdmin: [],
-                add: {
-                    is_master: 1,
-                },
+                add: {},
+                edit: {},
+                remove: {},
+                change: {},
             },
             created() {
                 this.loadData();

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->string('ho_va_ten');
             $table->string('email');
-            $table->string('passwork');
+            $table->string('password');
             $table->string('so_dien_thoai');
             $table->integer('is_master');
             $table->string('list_rules')->nullable();

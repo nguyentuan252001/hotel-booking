@@ -43,8 +43,8 @@
             <div class="inner box-shadow-007">
                 <!-- ========== BOOKING NOTIFICATION ========== -->
                 <div id="booking-notification" class="notification"></div>
-                <form id="booking-form">
-                    <!-- NAME -->
+                <form action="/booking-process" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-group">
@@ -82,9 +82,9 @@
                                 </label>
                                 <select class="form-control" name="booking-roomtype" title="Select Room Type"
                                     data-header="Room Type">
-                                    <option value="Single">Single Room</option>
-                                    <option value="Double">Double Room</option>
-                                    <option value="Deluxe">Deluxe Room</option>
+                                    @foreach ($data as $value)
+                                        <option value="{{ $value->id }}">{{ $value->ma_phong }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -153,11 +153,6 @@
                         <!-- BOOKING BUTTON -->
                         <div class="col-md-2">
                             <button type="submit" class="btn btn-book">BOOK A ROOM</button>
-                            <div class="advanced-form-link">
-                                <a href="booking-form.html">
-                                    Advanced Booking Form
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </form>

@@ -19,6 +19,5 @@ class AppServiceProvider extends ServiceProvider
         $slides = explode(',', Config::orderByDESC('id')->first()->slides);
 
         return view()->share('slides', $slides);
-
     }
 }

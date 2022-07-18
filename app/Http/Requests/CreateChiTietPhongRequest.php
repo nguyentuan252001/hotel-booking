@@ -22,4 +22,14 @@ class CreateChiTietPhongRequest extends FormRequest
             'noi_that' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'id_phong*' => 'Id phải được nhập',
+            'ten_phong*' => 'Phải nhập tên phòng',
+            'is_open*' => 'Vui lòng chọn Trạng thái',
+            'noi_that*' => 'Vui lòng nhập nội thất',
+        ];
+    }
 }

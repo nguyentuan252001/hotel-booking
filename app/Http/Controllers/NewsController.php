@@ -6,9 +6,28 @@ use App\Http\Requests\CreateNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+
+    public function viewNews($str)
+    {
+        $vitri = 0;
+        for ($i = strlen($str) - 1; $i >= 0; $i--) {
+            if ($str[$i] == '-') {
+                $vitri = $i;
+                break;
+            }
+        }
+        $id = Str::substr($str, $vitri + 1, strlen($str) - $vitri);
+        $news = News::where('id', $id)->first();
+        if ($news) {
+            return view('client.page.news_detail', compact('news'));
+        } else {
+            return redirect('/');
+        }
+    }
     public function index()
     {
         return view('admin.page.tin_tuc.index');

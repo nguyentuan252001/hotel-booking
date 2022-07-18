@@ -90,6 +90,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="/admin/logout" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <p>
+                            Đăng Xuất
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

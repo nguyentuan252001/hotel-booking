@@ -13,17 +13,18 @@ class ConfigController extends Controller
         return view('admin.page.config.index');
     }
 
-    public function store(CreateConfigRequest $request) {
+    public function store(CreateConfigRequest $request)
+    {
         $data = $request->all();
-
         Config::create($data);
 
         return response()->json([
-            'data' => $data,
+            'status' => true,
         ]);
     }
 
-    public function data() {
+    public function data()
+    {
         $data = Config::orderByDESC('id')->first();
         return response()->json([
             'data' => $data,

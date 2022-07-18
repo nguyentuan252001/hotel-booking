@@ -13,5 +13,6 @@ class Config extends Model
 
     protected $fillable = [
         'slides',
+        'images',
     ];
 }

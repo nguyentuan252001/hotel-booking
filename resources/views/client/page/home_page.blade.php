@@ -1,5 +1,8 @@
 @extends('client.share.master')
 @section('content')
+    <div class="wrapper">
+        @include('client.share.slide')
+    </div>
     <!-- ========== ABOUT ========== -->
     <section class="about gray">
         <div class="container">
@@ -48,92 +51,40 @@
             <div class="section-title">
                 <h4>OUR ROOMS</h4>
                 <p class="section-subtitle">Our favorite rooms</p>
-                <a href="rooms-list.html" class="view-all">View all rooms</a>
+                <a href="/list-room" class="view-all">View all rooms</a>
             </div>
             <div class="row">
-                <!-- ITEM -->
-                <div class="col-md-4">
-                    <div class="room-grid-item">
-                        <figure class="gradient-overlay-hover link-icon">
-                            <a href="room.html">
-                                <img src="/client/images/rooms/single/single1.jpg" class="img-fluid" alt="Image">
-                            </a>
-                            <div class="room-services">
-                                <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Breakfast Included"
-                                    data-original-title="Breakfast"></i>
-                                <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Plasma TV with cable channels"
-                                    data-original-title="TV"></i>
+                @foreach ($phong as $value)
+                    <div class="col-md-4">
+                        <div class="room-grid-item">
+                            <figure class="gradient-overlay-hover link-icon">
+                                <a href="/detail-room/{{ $value->id }}">
+                                    <img src="{{ $value->hinh_anh }}" class="img-fluid" alt="Image"
+                                        style="height: 300px">
+                                </a>
+                                <div class="room-services">
+                                    <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
+                                        data-trigger="hover" data-content="Breakfast Included"
+                                        data-original-title="Breakfast"></i>
+                                    <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
+                                        data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
+                                    <i class="fa fa-television" data-toggle="popover" data-placement="right"
+                                        data-trigger="hover" data-content="Plasma TV with cable channels"
+                                        data-original-title="TV"></i>
+                                </div>
+                                <div class="room-price">{{ number_format($value->gia_mac_dinh, 0, '', ',') }} VNĐ/Night
+                                </div>
+                            </figure>
+                            <div class="room-info">
+                                <h2 class="room-title">
+                                    <a href="/detail-room/{{ $value->id }}">{{ $value->ma_phong }}</a>
+                                </h2>
+                                <p>Enjoy our {{ $value->ma_phong }}</p>
                             </div>
-                            <div class="room-price">€89 / night</div>
-                        </figure>
-                        <div class="room-info">
-                            <h2 class="room-title">
-                                <a href="room.html">Single Room</a>
-                            </h2>
-                            <p>Enjoy our single room</p>
                         </div>
                     </div>
-                </div>
-                <!-- ITEM -->
-                <div class="col-md-4">
-                    <div class="room-grid-item">
-                        <figure class="gradient-overlay-hover link-icon">
-                            <a href="room.html">
-                                <img src="/client/images/rooms/double/double.jpg" class="img-fluid" alt="Image">
-                            </a>
-                            <div class="room-services">
-                                <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Breakfast Included"
-                                    data-original-title="Breakfast"></i>
-                                <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Plasma TV with cable channels"
-                                    data-original-title="TV"></i>
-                            </div>
-                            <div class="room-price">€129 / night</div>
-                        </figure>
-                        <div class="room-info">
-                            <h2 class="room-title">
-                                <a href="room.html">Double Room</a>
-                            </h2>
-                            <p>Enjoy our double room</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="col-md-4">
-                    <div class="room-grid-item">
-                        <figure class="gradient-overlay-hover link-icon">
-                            <a href="room.html">
-                                <img src="/client/images/rooms/deluxe/deluxe.jpg" class="img-fluid" alt="Image">
-                            </a>
-                            <div class="room-services">
-                                <i class="fa fa-coffee" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Breakfast Included"
-                                    data-original-title="Breakfast"></i>
-                                <i class="fa fa-bath" data-toggle="popover" data-placement="right" data-trigger="hover"
-                                    data-content="2 Bathrooms" data-original-title="Bathroom"></i>
-                                <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
-                                <i class="fa fa-television" data-toggle="popover" data-placement="right"
-                                    data-trigger="hover" data-content="Plasma TV with cable channels"
-                                    data-original-title="TV"></i>
-                            </div>
-                            <div class="room-price">€189 / night</div>
-                        </figure>
-                        <div class="room-info">
-                            <h2 class="room-title">
-                                <a href="room.html">Deluxe Room</a>
-                            </h2>
-                            <p>Enjoy our delux room</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -247,195 +198,30 @@
                 <p class="section-subtitle">What our guests are saying about us</p>
             </div>
             <div class="owl-carousel testimonials-owl">
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user1.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Marlene Simpson</h4>
-                            <div class="location">Madrid / Spain</div>
-                        </div>
-                        <div class="rating">
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                            <i class="fa fa-star voted" aria-hidden="true"></i>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user2.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Brad Knight</h4>
-                            <div class="location">Athens / Greece</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                @foreach ($review as $value)
+                    <div class="item">
+                        <div class="testimonial-item">
+                            <div class="author-img">
+                                <img alt="Image" class="img-fluid" src="{{ $value->avatar }}"
+                                    style="height: 80px; width: 80px;">
                             </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user3.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Daryl Phillips</h4>
-                            <div class="location">Lisbon / Portugal</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
+                            <div class="author">
+                                <h4 class="name">{{ $value->name }}</h4>
+                                <div class="location">{{ $value->city }}</div>
                             </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user4.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Felecia Lawson</h4>
-                            <div class="location">Paris / France</div>
                             <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                                @for ($i = 0; $i < $value->rate; $i++)
+                                    <i class="fa fa-star voted" aria-hidden="true"></i>
+                                @endfor
+                                @for ($i = 0; $i < 5 - $value->rate; $i++)
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                @endfor
                             </div>
+                            <p>{{ $value->content }}</p>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
                     </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user5.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Joanne Robinson</h4>
-                            <div class="location">New York / USA</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user6.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Emily Hill</h4>
-                            <div class="location">Rome / Italy</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user7.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Mabel Hicks</h4>
-                            <div class="location">Moscow / Russia</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user8.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Kent Lambert</h4>
-                            <div class="location">Berlin / Germany</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
-                <!-- ITEM -->
-                <div class="item">
-                    <div class="testimonial-item">
-                        <div class="author-img">
-                            <img alt="Image" class="img-fluid" src="/client/images/users/user9.jpg">
-                        </div>
-                        <div class="author">
-                            <h4 class="name">Gerald Schmidt</h4>
-                            <div class="location">Zagreb / Croatia</div>
-                            <div class="rating">
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star voted" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec turpis a nunc convallis
-                            condimentum. Sed odio nisl, mattis eget interdum non, pretium et lacus.</p>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>

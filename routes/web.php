@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookingRoomController;
 use App\Http\Controllers\ChiTietPhongController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\KhuVucController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PhongController;
@@ -20,7 +22,24 @@ Route::get('/', [TestController::class, 'index']);
 Route::get('/list-room', [PhongController::class, 'viewListRoom']);
 Route::get('/detail-room/{id}', [PhongController::class, 'viewDetailRoom']);
 
-Route::group(['prefix' => '/admin'], function () {
+Route::post('/booking-process', [BookingRoomController::class, 'bookingProcess']);
+
+
+Route::get('/admin/login', [AdminController::class, 'viewLogin']);
+Route::post('/admin/login', [AdminController::class, 'actionLogin']);
+
+Route::get('news/{str}', [NewsController::class, 'viewNews']);
+
+Route::group(['prefix' => '/admin', 'middleware' => 'adminMiddle'], function () {
+    Route::get('/logout', [AdminController::class, 'logout']);
+
+    Route::group(['prefix' => '/hoa-don'], function () {
+        Route::get('/', [HoaDonController::class, 'index']);
+        Route::get('/data', [HoaDonController::class, 'data']);
+        Route::post('/update', [HoaDonController::class, 'update']);
+        Route::post('/delete', [HoaDonController::class, 'destroy']);
+    });
+
     Route::group(['prefix' => '/khu-vuc'], function () {
         Route::get('/', [KhuVucController::class, 'index']);
         Route::post('/', [KhuVucController::class, 'store']);
@@ -93,6 +112,7 @@ Route::group(['prefix' => '/admin'], function () {
         Route::post('/delete', [ReviewController::class, 'destroy']);
         Route::post('/update', [ReviewController::class, 'update']);
     });
+
     Route::group(['prefix' => '/tai-khoan'], function () {
         Route::get('/', [AdminController::class, 'index']);
         Route::post('/create', [AdminController::class, 'store']);

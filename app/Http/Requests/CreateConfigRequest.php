@@ -17,6 +17,7 @@ class CreateConfigRequest extends FormRequest
     {
         return [
             'slides' => 'required',
+            'images' => 'required',
         ];
     }
 }
