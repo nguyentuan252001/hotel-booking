@@ -22,5 +22,12 @@
 <link rel="stylesheet" href="/client/css/magnific-popup.css">
 <link rel="stylesheet" href="/client/css/style.css">
 <link rel="stylesheet" href="/client/css/responsive.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 <!-- ========== ICON FONTS ========== -->
+<link href="/client/fonts/font-awesome.min.css" rel="stylesheet">
+<link href="/client/fonts/flaticon.css" rel="stylesheet">
+<!-- ========== GOOGLE FONTS ========== -->
+<link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CRoboto:100,300,400,400i,500,700"
+    rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+@toastr_css

@@ -24,7 +24,14 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="brand-info">
+                    <div style="background-image: url('https://preview.eagle-themes.com/html/himara/images/about-card.jpg');
+                                background-size: cover;
+                                min-height: 400px;
+                                text-align: center;
+                                position: relative;
+                                padding: 5px;
+                                border-radius: 2px;"
+                        class="brand-info">
                         <div class="inner">
                             <div class="content">
                                 <img src="/client/images/logo-big-transparent.svg" width="100" alt="Image">
@@ -98,95 +105,20 @@
             </div>
             <div class="gallery-owl owl-carousel image-gallery">
                 <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery1.jpg">
-                            <img src="/client/images/gallery/gallery1.jpg" alt="Image">
-                        </a>
-                        <figcaption>Swimming Pool</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery2.jpg">
-                            <img src="/client/images/gallery/gallery2.jpg" alt="Image">
-                        </a>
-                        <figcaption>Room View</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery3.jpg">
-                            <img src="/client/images/gallery/gallery3.jpg" alt="Image">
-                        </a>
-                        <figcaption>Cocktail</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery4.jpg">
-                            <img src="/client/images/gallery/gallery4.jpg" alt="Image">
-                        </a>
-                        <figcaption>Breakfast</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery5.jpg">
-                            <img src="/client/images/gallery/gallery5.jpg" alt="Image">
-                        </a>
-                        <figcaption>Playground</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery6.jpg">
-                            <img src="/client/images/gallery/gallery6.jpg" alt="Image">
-                        </a>
-                        <figcaption>Restaurant</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery7.jpg">
-                            <img src="/client/images/gallery/gallery7.jpg" alt="Image">
-                        </a>
-                        <figcaption>Wedding Ceremony</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery8.jpg">
-                            <img src="/client/images/gallery/gallery8.jpg" alt="Image">
-                        </a>
-                        <figcaption>Beach</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery9.jpg">
-                            <img src="/client/images/gallery/gallery9.jpg" alt="Image">
-                        </a>
-                        <figcaption>Honeymoon Room</figcaption>
-                    </figure>
-                </div>
-                <!-- ITEM -->
-                <div class="gallery-item">
-                    <figure class="gradient-overlay image-icon">
-                        <a href="/client/images/gallery/gallery10.jpg">
-                            <img src="/client/images/gallery/gallery10.jpg" alt="Image">
-                        </a>
-                        <figcaption>Sea</figcaption>
-                    </figure>
-                </div>
+                @php
+                    $images = explode(',', $gallery[0]->images);
+                @endphp
+                @foreach ($images as $key => $value)
+                    <div class="gallery-item">
+                        <figure class="gradient-overlay image-icon">
+                            <a href="{{ $value }}">
+                                <img src="{{ $value }}" alt="Image">
+                            </a>
+                            <figcaption>Swimming Pool</figcaption>
+                        </figure>
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -200,7 +132,7 @@
             <div class="owl-carousel testimonials-owl">
                 @foreach ($review as $value)
                     <div class="item">
-                        <div class="testimonial-item">
+                        <div class="testimonial-item" style="height: 350px; width: 330px;">
                             <div class="author-img">
                                 <img alt="Image" class="img-fluid" src="{{ $value->avatar }}"
                                     style="height: 80px; width: 80px;">
@@ -237,7 +169,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff1.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff1.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Housekeeper</div>
                     </figure>
                     <div class="details">
@@ -248,7 +181,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff2.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff2.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Receptionist</div>
                     </figure>
                     <div class="details">
@@ -259,7 +193,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff3.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff3.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Chef</div>
                     </figure>
                     <div class="details">
@@ -270,7 +205,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff4.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff4.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Hotel Manager</div>
                     </figure>
                     <div class="details">
@@ -281,7 +217,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff5.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff5.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Room Service</div>
                     </figure>
                     <div class="details">
@@ -292,7 +229,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff6.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff6.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Hotel Manager</div>
                     </figure>
                     <div class="details">
@@ -303,7 +241,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff7.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff7.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Marketing Advisor</div>
                     </figure>
                     <div class="details">
@@ -314,7 +253,8 @@
                 <!-- ITEM -->
                 <div class="staff-item">
                     <figure>
-                        <img src="/client/images/staff/staff8.jpg" class="img-fluid" alt="Image">
+                        <img src="https://preview.eagle-themes.com/html/himara/images/staff/staff8.jpg" class="img-fluid"
+                            alt="Image">
                         <div class="position">Hotel Manager</div>
                     </figure>
                     <div class="details">
@@ -526,7 +466,8 @@
                     <div class="offer-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="offer.html">
-                                <img src="/client/images/offers/offer1.jpg" class="img-fluid" alt="Image">
+                                <img src="https://preview.eagle-themes.com/html/himara/images/offers/offer1.jpg"
+                                    class="img-fluid" alt="Image">
                             </a>
                         </figure>
                         <div class="ribbon">
@@ -545,7 +486,8 @@
                     <div class="offer-item">
                         <figure class="gradient-overlay-hover link-icon">
                             <a href="offer.html">
-                                <img src="/client/images/offers/offer2.jpg" class="img-fluid" alt="Image">
+                                <img src="https://preview.eagle-themes.com/html/himara/images/offers/offer2.jpg"
+                                    class="img-fluid" alt="Image">
                             </a>
                         </figure>
                         <div class="ribbon">
@@ -562,4 +504,92 @@
             </div>
         </div>
     </section>
+    <!-- ========== CONTACT V2 ========== -->
+    <section class="contact-v2 gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="section-title">
+                        <h4>GET IN TOUCH</h4>
+                        <p class="section-subtitle">Get in touch</p>
+                    </div>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            Lorem ipsum dolor, 25, Himara
+                        </li>
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            Phone: +1 888 123 4567
+                        </li>
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            Fax: +1 888 123 4567
+                        </li>
+                        <li>
+                            <i class="fa fa-globe"></i>
+                            Web: www.hotelhimara.com
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            Email:
+                            <a href="mailto:info@site.com">contact@hotelhimara.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <div class="section-title">
+                        <h4>CONTACT US</h4>
+                        <p class="section-subtitle">Say hello</p>
+                    </div>
+                    <div id="app_message">
+                        <form id="contact-form" name="contact-form">
+                            <div class="form-group">
+                                <input class="form-control" v-model="contact_us.name" placeholder="Your Name"
+                                    type="text">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" v-model="contact_us.email" type="email"
+                                    placeholder="Your Email Address">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" v-model="contact_us.message" placeholder="Your Message"></textarea>
+                            </div>
+                            <button class="btn" type="submit" v-on:click="sendMessage()">
+                                <i class="fa fa-location-arrow"></i>Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection
+@section('js')
+    <script>
+        new Vue({
+            el: '#app_message',
+            data: {
+                contact_us: {},
+            },
+            methods: {
+                sendMessage() {
+                    axios
+                        .post('/send-contact-us', this.contact_us)
+                        .then((res) => {
+                            if (res.data.status) {
+                                toastr.success(res.data.message);
+                            } else {
+                                toastr.error(res.data.message);
+                            }
+                        })
+                        .catch((res) => {
+                            var errors = res.response.data.errors;
+                            $.each(errors, function(k, v) {
+                                toastr.error(v[0]);
+                            });
+                        });
+                },
+            }
+        });
+    </script>
 @endsection

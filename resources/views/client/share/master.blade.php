@@ -15,5 +15,6 @@
     </div>
     @include('client.share.js')
 </body>
+@yield('js')
 
 </html>

@@ -93,7 +93,6 @@
                 add: {},
                 edit: {},
                 remove: {},
-                change: {},
             },
             created() {
                 this.loadData();

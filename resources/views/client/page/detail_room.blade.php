@@ -322,8 +322,7 @@
                                 <div id="booking-notification" class="notification"></div>
                                 <h3 class="form-title">BOOK YOUR ROOM</h3>
                                 <div class="inner">
-                                    <form id="booking-form">
-
+                                    <form id="booking-form" action="/booking-process" method="post">
                                         <div class="form-group">
                                             <input class="form-control" name="booking-email" type="email"
                                                 placeholder="Your Email Address">

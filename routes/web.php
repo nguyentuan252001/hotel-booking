@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookingRoomController;
 use App\Http\Controllers\ChiTietPhongController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HoaDonController;
 use App\Http\Controllers\KhuVucController;
 use App\Http\Controllers\NewsController;
@@ -17,6 +19,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/jquery', [TestController::class, 'viewJQuery']);
 Route::get('/vue', [TestController::class, 'viewVue']);
 Route::get('/data', [TestController::class, 'testData']);
+
+Route::post('/send-contact-us', [TestController::class, 'sendContactUs']);
+
+Route::get('/login', [CustomerController::class, 'viewLogin']);
+Route::get('/register', [CustomerController::class, 'viewRegister']);
+Route::post('/login', [CustomerController::class, 'actionLogin']);
+Route::post('/register', [CustomerController::class, 'actionRegister']);
+Route::get('/active/{hash}', [CustomerController::class, 'activeCustomer']);
+Route::get('/forgot-password', [CustomerController::class, 'viewForgotPassword']);
+Route::post('/forgot-password', [CustomerController::class, 'actionForgotPassword']);
+Route::get('/change-password/{hash}', [CustomerController::class, 'viewChangePassword']);
+Route::post('/change-password', [CustomerController::class, 'actionChangePassword']);
 
 Route::get('/', [TestController::class, 'index']);
 Route::get('/list-room', [PhongController::class, 'viewListRoom']);
@@ -38,6 +52,12 @@ Route::group(['prefix' => '/admin', 'middleware' => 'adminMiddle'], function () 
         Route::get('/data', [HoaDonController::class, 'data']);
         Route::post('/update', [HoaDonController::class, 'update']);
         Route::post('/delete', [HoaDonController::class, 'destroy']);
+    });
+
+    Route::group(['prefix' => '/lien-he'], function () {
+        Route::get('/', [ContactUsController::class, 'index']);
+        Route::get('/data', [ContactUsController::class, 'getData']);
+        Route::post('/send-mail', [ContactUsController::class, 'sendMail']);
     });
 
     Route::group(['prefix' => '/khu-vuc'], function () {
@@ -87,6 +107,7 @@ Route::group(['prefix' => '/admin', 'middleware' => 'adminMiddle'], function () 
         Route::get('/edit/{id}', [ChiTietPhongController::class, 'edit']);
         Route::post('/update', [ChiTietPhongController::class, 'update']);
         Route::post('/changeStatus', [ChiTietPhongController::class, 'changeStatus']);
+        Route::post('/getListPhong', [ChiTietPhongController::class, 'getListPhong']);
     });
 
     Route::group(['prefix' => '/cau-hinh'], function () {

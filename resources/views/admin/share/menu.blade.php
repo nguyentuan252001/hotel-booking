@@ -91,6 +91,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/hoa-don" class="nav-link">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>
+                            Quản Lý Hóa Đơn
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/admin/logout" class="nav-link">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
                         <p>
